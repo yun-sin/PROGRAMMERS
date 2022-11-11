@@ -20,6 +20,7 @@ chain
 
 AAAAOOO
 
+BAABAAB
 3
 
 7 - 4
@@ -31,7 +32,7 @@ function solution(name) {
   // 위아래로 이동하는 횟수
   name.split("").forEach((v, i) => {
     let ascii = name.charCodeAt(i);
-    if (ascii < 77) {
+    if (ascii < 78) {
       answer += ascii - 65;
     } else {
       answer += 91 - ascii;
@@ -44,10 +45,11 @@ function solution(name) {
   let chainLastIndex = 0;
 
   // 좌우로 이동하는 횟수
+  // 가장 긴 A의 길이, 끝 인덱스를 찾음
   name.split("").forEach((v, i) => {
     if (v == "A") {
       chain += 1;
-      if (max < chain) {
+      if (max <= chain) {
         chainLastIndex = i;
         max = chain;
       }
@@ -58,16 +60,20 @@ function solution(name) {
 
   let chainFirstIndex = chainLastIndex - max + 1;
   let goStraight = name.length - 1;
+  let goTurn = 0;
   let goBack = 0;
+
   if (chainFirstIndex <= 1) {
-    goBack = name.length - chainLastIndex - 1;
+    console.log("BACK1");
+    goTurn = name.length - chainLastIndex - 1;
   } else {
-    goBack = goStraight - 1 + chainFirstIndex - 1;
+    console.log("BACK2");
+    goTurn = 2 * (chainFirstIndex - 1) + name.length - chainLastIndex - 1;
   }
 
-  console.log("직: " + goStraight + ", 턴: " + goBack);
-  goStraight < goBack ? (answer += goStraight) : (answer += goBack);
-  // goBack >= 0 ? (answer += goBack) : (answer += 0);
+  console.log("직: " + goStraight + ", 턴: " + goTurn);
+  goStraight < goTurn ? (answer += goStraight) : (answer += goTurn);
+  // goTurn >= 0 ? (answer += goTurn) : (answer += 0);
   return answer;
 }
 
@@ -75,3 +81,6 @@ console.log(solution("JAZ"));
 console.log(solution("JEROEN"));
 console.log(solution("JAN"));
 console.log(solution("AABB"));
+console.log(solution("MMNNAABB"));
+console.log(solution("AAAJAAAJAAA"));
+console.log(solution("AAAJAAAAAAJAAA"));
