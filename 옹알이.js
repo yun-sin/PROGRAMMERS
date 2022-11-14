@@ -12,3 +12,4 @@ function solution(babbling) {
 
 console.log(solution(["aya", "yee", "u", "maa", "wyeoo"]));
 console.log(solution(["ayaye", "uuuma", "ye", "yemawoo", "ayaa"]));
+console.log(solution(["yayae", "aya"]));
