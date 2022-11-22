@@ -1,8 +1,10 @@
 function solution(k, m, score) {
   var answer = 0;
 
+  // 내림차순으로 정렬
   score.sort((a, b) => b - a);
 
+  // m개씩 끊어서 체크 (나머지는 버림)
   for (let i = m - 1; i < score.length; i += m) {
     if (score[i]) {
       answer += score[i] * m;
