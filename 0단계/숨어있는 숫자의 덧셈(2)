@@ -1,0 +1,28 @@
+function solution(str) {
+  var answer = 0;
+
+  console.log(str);
+
+  let str2 = "";
+
+  for (i = 0; i < str.length; i++) {
+    // console.log(Number.isInteger(+str[i]));
+
+    if (Number.isInteger(+str[i])) {
+      str2 += str[i];
+    } else {
+      str2 += " ";
+    }
+  }
+
+  console.log(str2);
+
+  let arr = str2.trim().split(" ");
+
+  console.log(arr);
+
+  return answer;
+}
+
+solution("aAb1B2cC34oOp");
+solution("1a2b3c4d123Z");
