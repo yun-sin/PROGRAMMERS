@@ -20,6 +20,7 @@ function solution(numer1, denom1, numer2, denom2) {
   console.log(answer);
   console.groupEnd();
   return answer;
+  // 123
 }
 
 solution(1, 2, 3, 4);
