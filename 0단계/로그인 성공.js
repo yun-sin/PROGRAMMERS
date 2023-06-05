@@ -12,7 +12,7 @@ function solution(id_pw, db) {
     }
   });
 
-  // console.log(answer);
+  // console.logd(answer);
   return answer;
 }
 
