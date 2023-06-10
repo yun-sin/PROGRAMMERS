@@ -33,8 +33,9 @@ function solution(book_time) {
 
     if (id1 && id2) {
       room--;
+      arr[id1] = [arr[id1][0], arr[id2][1]];
       arr[id2] = [];
-      arr[id1] = [];
+      i--;
     }
   }
 
